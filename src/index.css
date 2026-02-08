@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ScholarRef - Academic Reference Management Design System */
+
+@layer base {
+  :root {
+    /* Fresh green academic palette */
+    --background: 140 20% 98%;
+    --foreground: 150 30% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 150 30% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 150 30% 12%;
+
+    /* Academic green */
+    --primary: 152 55% 28%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Soft scholarly gray-green */
+    --secondary: 140 20% 93%;
+    --secondary-foreground: 152 55% 28%;
+
+    --muted: 140 15% 96%;
+    --muted-foreground: 150 15% 45%;
+
+    /* Warm accent for highlights */
+    --accent: 45 90% 55%;
+    --accent-foreground: 150 30% 12%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 140 15% 88%;
+    --input: 140 15% 88%;
+    --ring: 152 55% 28%;
+
+    --radius: 0.5rem;
+
+    /* Semantic colors */
+    --success: 152 70% 35%;
+    --success-foreground: 0 0% 100%;
+    
+    --warning: 38 92% 50%;
+    --warning-foreground: 150 30% 12%;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(152 55% 28%) 0%, hsl(155 50% 35%) 50%, hsl(145 40% 42%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(140 20% 98%) 100%);
+    --gradient-subtle: linear-gradient(135deg, hsl(140 20% 93%) 0%, hsl(140 15% 96%) 100%);
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(220 30% 15% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(220 30% 15% / 0.07), 0 2px 4px -2px hsl(220 30% 15% / 0.05);
+    --shadow-lg: 0 10px 15px -3px hsl(220 30% 15% / 0.08), 0 4px 6px -4px hsl(220 30% 15% / 0.05);
+    --shadow-xl: 0 20px 25px -5px hsl(220 30% 15% / 0.1), 0 8px 10px -6px hsl(220 30% 15% / 0.05);
+    --shadow-card: 0 1px 3px 0 hsl(220 30% 15% / 0.05), 0 1px 2px -1px hsl(220 30% 15% / 0.05);
+    --shadow-card-hover: 0 10px 20px -5px hsl(220 30% 15% / 0.1);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 150 20% 8%;
+    --foreground: 140 15% 95%;
+
+    --card: 150 20% 12%;
+    --card-foreground: 140 15% 95%;
+
+    --popover: 150 20% 12%;
+    --popover-foreground: 140 15% 95%;
+
+    --primary: 152 55% 50%;
+    --primary-foreground: 150 30% 8%;
+
+    --secondary: 150 15% 20%;
+    --secondary-foreground: 140 15% 95%;
+
+    --muted: 150 15% 18%;
+    --muted-foreground: 140 10% 60%;
+
+    --accent: 45 90% 55%;
+    --accent-foreground: 150 30% 8%;
+
+    --destructive: 0 62.8% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 150 15% 20%;
+    --input: 150 15% 20%;
+    --ring: 152 55% 50%;
+
+    --sidebar-background: 150 20% 10%;
+    --sidebar-foreground: 140 15% 95%;
+    --sidebar-primary: 152 55% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 150 15% 15%;
+    --sidebar-accent-foreground: 140 15% 95%;
+    --sidebar-border: 150 15% 18%;
+    --sidebar-ring: 152 55% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Libre Baskerville', Georgia, serif;
+  }
+}
+
+@layer components {
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+
+  .card-elevated {
+    background: var(--gradient-card);
+    box-shadow: var(--shadow-card);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+
+  .card-elevated:hover {
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-2px);
+  }
+
+  .text-gradient {
+    background: var(--gradient-hero);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.4s ease-out forwards;
+  }
+}
+
+@layer utilities {
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    from { 
+      opacity: 0; 
+      transform: translateY(20px); 
+    }
+    to { 
+      opacity: 1; 
+      transform: translateY(0); 
+    }
+  }
+
+  @keyframes scaleIn {
+    from { 
+      opacity: 0; 
+      transform: scale(0.95); 
+    }
+    to { 
+      opacity: 1; 
+      transform: scale(1); 
+    }
+  }
+
+  .delay-100 { animation-delay: 0.1s; }
+  .delay-200 { animation-delay: 0.2s; }
+  .delay-300 { animation-delay: 0.3s; }
+  .delay-400 { animation-delay: 0.4s; }
+}
